@@ -5,8 +5,167 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UPS_Charge_Station"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="593.333" Width="800"
+        BorderThickness="0"
+        ResizeMode="CanResizeWithGrip"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        MouseDown="Window_MouseDown"
+        Closing="Window_Closing"  
+        Topmost="True"
+        WindowStartupLocation="CenterScreen">
+
+
+    <Grid SizeChanged="Grid_SizeChanged">
+        <Canvas x:Name="myCanvas" Margin="1,1,1,0" Background="#FFF6F6F6" RenderTransformOrigin="0.5,0.5">
+
+            <Rectangle Width="200" Height="100"                      
+                       Fill="Transparent" Stroke="#B0BEC5" StrokeThickness=".5" 
+                       Canvas.Left="9" Canvas.Top="474" />
+
+            <Rectangle Width="200" Height="100"                      
+                       Fill="Transparent" Stroke="#B0BEC5" StrokeThickness=".5" 
+                       Canvas.Left="9" Canvas.Top="338" />
+
+
+            <Rectangle Width="200" Height="100"                      
+                       Fill="Transparent" Stroke="#B0BEC5" StrokeThickness=".5" 
+                       Canvas.Left="9" Canvas.Top="203" />
+
+
+            <DockPanel 
+                   LastChildFill="False" 
+                   RenderTransformOrigin="0.5,0.5"
+                   Background="#3F51B5" 
+                   Canvas.Left="-1" Canvas.Top="-2" 
+                   Width="801" Height="57"/>
+
+            <Button x:Name="btnClose"
+                Content="X" 
+                BorderThickness=".5"
+                BorderBrush="#3949AB"
+                Foreground="WhiteSmoke"
+                Background="#3F51B5"
+                Canvas.Left="767" 
+                Width="27" Height="26" Canvas.Top="4"
+                Click="BtnClose_Click"/>
+
+            <Label x:Name="lblTitle"
+               Content="UPS Charge Station 1.0.0.0" 
+               FontSize="14"
+               Foreground="WhiteSmoke"
+               Background="Transparent"
+               VerticalContentAlignment="Center"
+               FontStyle="Normal" 
+               VerticalAlignment="Top" Height="46" Canvas.Left="10" Canvas.Top="5" Width="474"/>
+
+
+            <!--Interface visual de Bahia 1-->
+            <Label Content="Tiempo transcurrido en Bahia 1" 
+                   HorizontalContentAlignment="Center"
+                   Canvas.Left="10" Canvas.Top="69" Width="194"/>
+            <Rectangle Width="200" Height="100"                      
+                       Fill="Transparent" Stroke="#B0BEC5" StrokeThickness=".5" 
+                       Canvas.Left="9" Canvas.Top="67" />
+
+            <Label x:Name="lblTimer1" Content="00:00:00"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"
+                   FontSize="30"
+                   Canvas.Left="10" Canvas.Top="106" 
+                   Width="194" Height="58"/>
+
+            <Button x:Name="btnOnOffSlot1" 
+                    Content="INICIAR CICLO DE CARGA" 
+                    Canvas.Left="212" 
+                    FontSize="20"                  
+                    Background="#4CAF50"
+                    BorderThickness="0"
+                    Foreground="WhiteSmoke"
+                    Click="BtnOnOffSlot1_Click"
+                    Canvas.Top="67" Width="573" Height="100"/>
+
+            <!--Interface visual de Bahia 2-->
+            <Label Content="Tiempo transcurrido en Bahia 2" 
+                   HorizontalContentAlignment="Center"
+                   Canvas.Left="10" Canvas.Top="206" Width="194"/>
+
+            <Label x:Name="lblTimer2" Content="00:00:00"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"
+                   FontSize="30"
+                   Canvas.Left="10" Canvas.Top="245" 
+                   Width="194" Height="54"/>
+
+            <Button x:Name="btnOnOffSlot2" 
+                    Content="INICIAR CICLO DE CARGA" 
+                    Canvas.Left="212" 
+                    FontSize="20"                  
+                    Background="#4CAF50"
+                    BorderThickness="0"
+                    Foreground="WhiteSmoke"
+                    Click="BtnOnOffSlot2_Click"
+                    Canvas.Top="203" Width="573" Height="100"/>
+
+
+            <!--Interface visual de Bahia 3-->
+            <Label Content="Tiempo transcurrido en Bahia 3" 
+                   HorizontalContentAlignment="Center"
+                   Canvas.Left="10" Canvas.Top="342" Width="194"/>
+
+            <Label x:Name="lblTimer3" Content="00:00:00"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"
+                   FontSize="30"
+                   Canvas.Left="10" Canvas.Top="380" 
+                   Width="194" Height="54"/>
+
+            <Button x:Name="btnOnOffSlot3" 
+                    Content="INICIAR CICLO DE CARGA" 
+                    Canvas.Left="212" 
+                    FontSize="20"                  
+                    Background="#4CAF50"
+                    BorderThickness="0"
+                    Foreground="WhiteSmoke"
+                    Click="BtnOnOffSlot3_Click"
+                    Canvas.Top="338" Width="573" Height="100"/>
+
+            <!--Interface visual de Bahia 4-->
+            <Label Content="Tiempo transcurrido en Bahia 4" 
+                   HorizontalContentAlignment="Center"
+                   Canvas.Left="10" Canvas.Top="478" Width="194"/>
+
+            <Label x:Name="lblTimer4" Content="00:00:00"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"
+                   FontSize="30"
+                   Canvas.Left="10" Canvas.Top="514" 
+                   Width="194" Height="58"/>
+
+            <Button x:Name="btnOnOffSlot4" 
+                    Content="INICIAR CICLO DE CARGA" 
+                    Canvas.Left="212" 
+                    FontSize="20"                  
+                    Background="#4CAF50"
+                    BorderThickness="0"
+                    Foreground="WhiteSmoke"
+                    Click="BtnOnOffSlot4_Click"
+                    Canvas.Top="474" Width="573" Height="100"/>
+
+
+            <!--Interface boton de reset los 4 timers-->
+            <Button x:Name="btnReset" 
+                    Canvas.Left="651" 
+                    FontSize="14" 
+                    Content="RESET"
+                    Background="#F44336"
+                    BorderThickness="0"
+                    Foreground="WhiteSmoke"
+                    Click="BtnReset_Click"
+                    Canvas.Top="5" Width="107" Height="43">
+            </Button>
+
+        </Canvas>
+
     </Grid>
 </Window>
